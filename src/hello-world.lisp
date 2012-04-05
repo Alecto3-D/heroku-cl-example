@@ -19,7 +19,7 @@ TODO: cleanup code."
     (list database user password host)))
 
 ;; Handlers
-(push (hunchentoot:create-folder-dispatcher-and-handler "static/" "public/")
+(push (hunchentoot:create-folder-dispatcher-and-handler "/static/" "/app/public/")
 	 hunchentoot:*dispatch-table*)
 
 (hunchentoot:define-easy-handler (hello-sbcl :uri "/") ()
@@ -39,8 +39,7 @@ TODO: cleanup code."
       (:div
        (:a :href "static/hello.txt" "hello"))
       (:h3 "App Database")
-      (:p (format s "DATABASE_URL: ~A" *database-url*))))))
-      ;; (:div
-      ;;  (:pre "SELECT version();"))
-      ;; (:div (format s "~A" (postmodern:with-connection (db-params)
-      ;;  			     (postmodern:query "select version()"))))))))
+      (:div
+       (:pre "SELECT version();"))
+      (:div (format s "~A" (postmodern:with-connection (db-params)
+			     (postmodern:query "select version()"))))))))
