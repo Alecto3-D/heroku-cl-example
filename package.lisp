@@ -1,4 +1,4 @@
 ;;;; package.lisp
 
 (defpackage #:example
-  (:use #:cl #:hunchentoot #:postmodern))
+  (:use #:cl #:hunchentoot #:postmodern #:cl-who))
