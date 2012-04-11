@@ -7,8 +7,12 @@
   :components ((:file "package")
 	       (:module :src
 			:serial t      
-			:components ((:file "util/heroku-utils")
-				     (:file "views/layout")
-				     (:file "views/index")
-				     (:file "controllers")))))
+			:components
+			((:file "util/heroku-utils")
+			 (:module :views
+				  :serial t
+				  :components ((:file "layout")
+					       (:file "index")
+					       (:file "new")))
+			 (:file "controllers")))))
 
