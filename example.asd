@@ -7,5 +7,7 @@
   :components ((:file "package")
 	       (:module :src
 			:serial t      
-			:components ((:file "hello-world")))))
+			:components ((:file "util/heroku-utils")
+				     (:file "views/layout")
+				     (:file "controllers")))))
 
