@@ -9,5 +9,6 @@
 			:serial t      
 			:components ((:file "util/heroku-utils")
 				     (:file "views/layout")
+				     (:file "views/index")
 				     (:file "controllers")))))
 
