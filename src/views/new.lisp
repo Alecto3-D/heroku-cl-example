@@ -15,5 +15,7 @@
 		    (:option :value "NC-17" "NC-17"))))))
 
     
+;; (selector-form "movie-rating"
+;; 	       (list "G" "PG" "PG-13" "R" "NC-17")))))
 
     
