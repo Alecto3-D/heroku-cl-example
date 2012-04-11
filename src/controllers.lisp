@@ -1,5 +1,6 @@
 (in-package :example)
 
-;; Handlers
-(push (hunchentoot:create-folder-dispatcher-and-handler "/static/" "/app/public/")
-	 hunchentoot:*dispatch-table*)
+(setq *dispatch-table*
+      (list
+       (create-regex-dispatcher "^/index" 'controller-index)
+       (create-static-file-dispatcher-and-handler "/site.css" "static/application.css")))
