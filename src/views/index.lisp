@@ -3,7 +3,7 @@
 (defun controller-index ()
   (standard-page
     (:h1 "All Movies")
-    (:table
+    (:table :id "movies"
      (:thead
       (:tr
        (:th "Movie title")
