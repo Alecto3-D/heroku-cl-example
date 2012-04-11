@@ -11,4 +11,4 @@
   "Creates table if it doesn't exist already. Expects symbol."
   (with-connection (db-params)
     (unless (table-exists-p type)
-      (dao-table-definition type))))
+      (execute (dao-table-definition type)))))
