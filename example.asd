@@ -9,10 +9,12 @@
 			:serial t      
 			:components
 			((:file "util/heroku-utils")
+			 (:file "util/html-macros")
 			 (:module :views
 				  :serial t
 				  :components ((:file "layout")
 					       (:file "index")
 					       (:file "new")))
+			 (:file "model")
 			 (:file "controllers")))))
 
