@@ -12,15 +12,6 @@
 	   (:label "Released on")
 	   (:input :name "movie-date" :size "30" :type "date")
 	   (:input :name "commit" :type "submit" :value "Save Changes")))))
-
-
-	   ;; (:select :name "movie-rating"
-	   ;; 	    (:option :value "G" "G")
-	   ;; 	    (:option :value "PG" "PG"
-	   ;; 	    (:option :value "PG-13" "PG-13")
-	   ;; 	    (:option :value "R" "R")
-	   ;; 	    (:option :value "NC-17" "NC-17"))))))
-
     
 
     
