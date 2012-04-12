@@ -3,7 +3,7 @@
 (defun controller-new ()
   (standard-page
     (:h1 "Create new movie")
-    (:form :action "/movies" :method "post"
+    (:form :action "/add-movie" :method "post"
 	   (:label "Title")
 	   (:input :name "movie-title" :size "30" :type "text")
 	   (:label "Rating")
