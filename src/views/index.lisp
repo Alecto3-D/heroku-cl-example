@@ -10,5 +10,5 @@
        (:th "Rating")
        (:th "Release Date")
        (:th "More info"))))
-    (:a :href "new/" "Add new movie")))
+    (:a :href "movies/new/" "Add new movie")))
       
