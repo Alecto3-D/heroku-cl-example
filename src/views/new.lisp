@@ -9,8 +9,9 @@
 		  (:label "Rating")
 		  ,(selector-form "movie-rating"
 				  (list "G" "PG" "PG-13" "R" "NC-17"))
-		  (:label "Release date")
-		  (:input :name "movie-date" :size "30" :type "date")))))
+		  (:label "Released on")
+		  (:input :name "movie-date" :size "30" :type "date")
+		  (:input :name "commit" :type "submit" :value "Save Changes")))))
 
 
 	   ;; (:select :name "movie-rating"
