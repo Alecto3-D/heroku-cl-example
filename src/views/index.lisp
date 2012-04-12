@@ -9,6 +9,7 @@
        (:th "Movie title")
        (:th "Rating")
        (:th "Release Date")
-       (:th "More info"))))
+       (:th "More info")))
+     (all-movie-rows))
     (:a :href "movies/new/" "Add new movie")))
       

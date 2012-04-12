@@ -11,7 +11,9 @@
   "Form processer for adding new movie."
   (let ((title (parameter "movie-title"))
 	(rating (parameter "movie-rating"))
-	(date (parameter "movie-date")))
+	(year (parse-integer (parameter "year")))
+	(month (parse-integer (parameter "month")))
+	(day (parse-integer (parameter "day"))))
     (with-connection (db-params)
-      (make-dao 'movie :title title :rating rating :release-date date)))
+      (make-dao 'movie :title title :rating rating :release-date (encode-date year month day))))
   (redirect "/movies"))
