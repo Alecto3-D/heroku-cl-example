@@ -12,7 +12,7 @@
 	   (selector-form "year" (num-list 2012 1930))
 	   (selector-form "month" (num-list 1 12))
 	   (selector-form "day" (num-list 1 31))	  
-	   (:input :name "commit" :type "submit" :value "Save Changes")))))
+	   (:input :name "commit" :type "submit" :value "Save Changes"))))
     
 
     
