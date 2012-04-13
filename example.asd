@@ -3,7 +3,8 @@
   :description "Example cl-heroku application"
   :depends-on (#:hunchentoot
 	       #:cl-who
-	       #:postmodern)
+	       #:postmodern
+	       #:simple-date)
   :components ((:file "package")
 	       (:module :src
 			:serial t      
