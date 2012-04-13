@@ -1,49 +1,47 @@
 (in-package :example)
 
-(defclass movie ()
-  ((id :col-type serial :initarg :id)
-   (title :col-type string :initarg :title :reader movie-title)
-   (rating :col-type string :initarg :rating :accessor movie-rating)
-   (release-date :col-type date :initarg :release-date :accessor movie-release-date))
-  (:metaclass dao-class)
-  (:keys id))
+(defun symb (a b)
+  (intern (format nil "~a-~a" (symbol-name a) (symbol-name b))))
 
-(defun movie-init-table ()
-  "Creates table if it doesn't exist already."
-  (with-connection (db-params)
-    (when (table-exists-p 'movie)
-      (query "DROP TABLE movie"))
-    (execute (dao-table-definition 'movie))))
+;; (defun slot-gen (slot)
+;;   `(,(car slot) :col-type ,(cadr slot) :initarg ,(car slot) :accessor ,(symb 'name ,(car slot))))
 
-;; Create
-
-(defmacro movie-create (&rest args)
-  `(with-connection (db-params)
-     (make-dao 'movie ,@args)))
-
-;; Read
-
-(defun movie-get-all ()
-  (with-connection (db-params)
-    (select-dao 'movie)))
-
-(defun movie-get (id)
-  (with-connection (db-params)
-    (get-dao 'movie id)))
-
-(defmacro movie-select (test &optional sort)
-  `(with-connection (db-params)
-     (select-dao 'movie ,test ,sort)))
-
-;; Update
-
-(defun movie-update (movie)
-  (with-connection (db-params)
-    (update-dao movie)))
-
-;; Delete
-
-(defun movie-delete (movie)
-  (with-connection (db-params)
-    (delete-dao movie)))
-  
+(defmacro defmodel (name slot-definitions)
+  `(progn
+     (defclass ,name ()
+       ((id :col-type serial)
+	,@slot-definitions)		      
+       (:metaclass dao-class)
+       (:keys id))
+     (defun ,(symb name 'init-table) ()
+         (with-connection (db-params)
+	   (when (table-exists-p ',name)
+	     (query (conc "DROP TABLE" (string ,name))))
+	   (execute (dao-table-definition ',name))))
+     ;; Create
+     (defmacro ,(symb name 'create) (&rest args)
+       `(with-connection (db-params)
+	  (make-dao ',name ,@args)))
+     ;; Read
+     (defun ,(symb name 'get-all) ()
+       (with-connection (db-params)
+	 (select-dao ',name)))
+     (defun ,(symb name 'get) (id)
+       (with-connection (db-params)
+	 (get-dao ',name id)))
+     (defmacro ,(symb name 'select) (test &optional sort)
+       `(with-connection (db-params)
+	  (select-dao ',name ,test ,sort)))
+     ;; Update
+     (defun ,(symb name 'update) (,name)
+       (with-connection (db-params)
+	 (update-dao ,name)))
+     ;; Delete
+     (defun ,(symb name 'delete) (,name)
+       (with-connection (db-params)
+	 (delete-dao ,name)))))      
+       
+(defmodel movie
+    ((title :col-type string :initarg :title :reader movie-title)
+     (rating :col-type string :initarg :rating :accessor movie-rating)
+     (release-date :col-type date :initarg :release-date :accessor movie-release-date)))
