@@ -8,6 +8,9 @@
 ;; Database
 (defvar *database-url* (heroku-getenv "DATABASE_URL"))
 
+;; For testing on localhost
+(defvar *test* T)
+
 (defun db-params ()
   "Heroku database url format is postgres://username:password@host/database_name."
   (if *test*
