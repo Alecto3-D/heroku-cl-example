@@ -5,7 +5,6 @@
     (with-output-to-string (s)
       (format s "~4,'0d-~2,'0d-~2,'0d" year month day))))
 
-
 (def-internal-macro all-movie-rows ()
   (let ((who-code '(:tbody)))
     (with-connection (db-params)
