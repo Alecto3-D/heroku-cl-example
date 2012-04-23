@@ -18,6 +18,5 @@
 	(year (parse-integer (parameter "year")))
 	(month (parse-integer (parameter "month")))
 	(day (parse-integer (parameter "day"))))
-    (with-connection (db-params)
-      (make-dao 'movie :title title :rating rating :release-date (encode-date year month day))))
+    (movie-create :title title :rating rating :release-date (encode-date year month day)))
   (redirect "/movies"))
