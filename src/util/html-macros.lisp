@@ -5,6 +5,16 @@
     (with-output-to-string (s)
       (format s "~4,'0d-~2,'0d-~2,'0d" year month day))))
 
+(defun all-movie-rows ()
+  (dolist (movie (movie-get-all))
+    (htm
+     (:tr
+      (:td (fmt "~a" (movie-title movie)))
+      (:td (fmt "~a" (movie-rating movie)))
+      (:td (fmt "~a" (print-date (movie-release-date movie))))
+      (:td (:a :href (concatenate 'string "movies/" (write-to-string (movie-id movie)))
+	       (fmt "More info about ~A" (movie-title movie))))))))
+
 (def-internal-macro selector-form (name options)
   `(:select :name ,name
 	    ,@(mapcar
