@@ -9,7 +9,7 @@
 (defmacro defmodel (name slot-definitions)
   `(progn
      (defclass ,name ()
-       ((id :col-type serial)
+       ((id :col-type serial :reader movie-id)
 	,@slot-definitions)		      
        (:metaclass dao-class)
        (:keys id))
