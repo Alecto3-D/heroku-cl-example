@@ -16,12 +16,12 @@
      (defun ,(symb name 'init-table) ()
          (with-connection (db-params)
 	   (when (table-exists-p ',name)
-	     (query (conc "DROP TABLE" (string ,name))))
+	     (query (conc "DROP TABLE" (string ',name))))
 	   (execute (dao-table-definition ',name))))
      ;; Create
      (defmacro ,(symb name 'create) (&rest args)
        `(with-connection (db-params)
-	  (make-dao ',name ,@args)))
+	  (make-dao ',',name ,@args)))
      ;; Read
      (defun ,(symb name 'get-all) ()
        (with-connection (db-params)
@@ -31,7 +31,7 @@
 	 (get-dao ',name id)))
      (defmacro ,(symb name 'select) (test &optional sort)
        `(with-connection (db-params)
-	  (select-dao ',name ,test ,sort)))
+	  (select-dao ',',name ,test ,sort)))
      ;; Update
      (defun ,(symb name 'update) (,name)
        (with-connection (db-params)
