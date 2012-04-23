@@ -29,7 +29,7 @@
      (defun ,(symb name 'get) (id)
        (with-connection (db-params)
 	 (get-dao ',name id)))
-     (defmacro ,(symb name 'select) (test &optional sort)
+     (defmacro ,(symb name 'select) (sql-test &optional sort)
        `(with-connection (db-params)
 	  (select-dao ',',name ,test ,sort)))
      ;; Update
