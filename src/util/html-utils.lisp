@@ -1,6 +1,7 @@
 (in-package :example)
 
 (defun print-date (date)
+  "Given a date (postmodern style) decode and return a string"
   (multiple-value-bind (year month day) (decode-date date)
     (with-output-to-string (s)
       (format s "~4,'0d-~2,'0d-~2,'0d" year month day))))
