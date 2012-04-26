@@ -11,6 +11,7 @@
 			:components
 			((:file "util/heroku-utils")
 			 (:file "util/html-utils")
+			 (:file "util/model-utils")
 			 (:file "model")
 			 (:module :views
 				  :serial t
