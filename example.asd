@@ -17,6 +17,8 @@
 				  :serial t
 				  :components ((:file "layout")
 					       (:file "index")
-					       (:file "new")))
+					       (:file "new")
+					       (:file "show")
+					       (:file "edit")))
 			 (:file "controllers")))))
 
