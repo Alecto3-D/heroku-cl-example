@@ -4,7 +4,7 @@
   (let ((movie (movie-get (get-id-from-uri))))
     (standard-page
     (:h1 "Edit Existing Movie")
-    (:form :action "/movies/2/update" :method "post"
+    (:form :action (concatenate 'string "/movies/" (get-id-from-uri) "/update") :method "post"
 	   (:label "Title")
 	   (:input :name "movie-title" :size "30" :type "text" :value (movie-title movie))
 	   (:label "Rating")
