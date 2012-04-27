@@ -37,7 +37,7 @@
 	(year (parse-integer (parameter "year")))
 	(month (parse-integer (parameter "month")))
 	(day (parse-integer (parameter "day")))
-	(movie (movie-get (get-id-from-uri)))
+	(movie (movie-get (get-id-from-uri))))
     (setf (movie-title movie) title
 	  (movie-rating movie) rating
 	  (movie-release-date movie) (encode-date year month day))
