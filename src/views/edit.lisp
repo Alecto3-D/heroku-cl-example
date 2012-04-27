@@ -1,7 +1,7 @@
 (in-package :example)
 
 (defun controller-edit ()
-  (let ((movie (movie-get 2)))
+  (let ((movie (movie-get (get-id-from-uri))))
     (standard-page
     (:h1 "Edit Existing Movie")
     (:form :action "/movies/2/update" :method "post"

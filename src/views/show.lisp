@@ -1,7 +1,7 @@
 (in-package :example)
 
 (defun controller-show ()
-  (let ((movie (movie-get 2)))
+  (let ((movie (movie-get (get-id-from-uri))))
     (standard-page
       (:h2 (fmt "Details about ~A" (movie-title movie)))
       (:ul :id "details"
