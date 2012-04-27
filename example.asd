@@ -9,9 +9,12 @@
 	       (:module :src
 			:serial t      
 			:components
-			((:file "util/heroku-utils")
-			 (:file "util/html-utils")
-			 (:file "util/model-utils")
+			((:module :util
+				  :serial t
+				  :components ((:file "general-utils")
+					       (:file "heroku-utils")
+					       (:file "html-utils")
+					       (:file "model-utils")))
 			 (:file "model")
 			 (:module :views
 				  :serial t
