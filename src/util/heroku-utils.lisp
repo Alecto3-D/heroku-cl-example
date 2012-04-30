@@ -9,7 +9,7 @@
 (defvar *database-url* (heroku-getenv "DATABASE_URL"))
 
 ;; For testing on localhost
-(defvar *test* T)
+(defvar *test* nil)
 
 ;; Start local server
 (defvar *server* (start (make-instance 'easy-acceptor :port 8088)))
