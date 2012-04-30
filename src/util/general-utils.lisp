@@ -14,3 +14,8 @@
   (if (< y x)
       (loop for i from x downto y collect i)
       (loop for i from x upto y collect i)))
+
+(defun drop-table (name)
+  "Drops the table completely, deletes all entries. Use only when redefining models completely."
+  (with-connection (db-params)
+    (query (conc "DROP TABLE " name))))
