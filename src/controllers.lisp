@@ -42,5 +42,5 @@
 	  (movie-rating movie) rating
 	  (movie-release-date movie) (encode-date year month day))
     (movie-update movie))
-  (redirect "/movies"))
+  (redirect (conc "/movies/" (get-id-from-uri))))
   
