@@ -37,7 +37,7 @@
        ,element)))
 
 (def-date-getter day)
-(def-date-getter month
+(def-date-getter month)
 (def-date-getter year)
 
 ;; -------------
