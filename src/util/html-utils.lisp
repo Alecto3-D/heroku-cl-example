@@ -1,5 +1,9 @@
 (in-package :example)
 
+(defmacro html-to-stout (&body body)
+  "Outputs HTML to standard out. Thanks Inaimathi for this tip!"
+  `(with-html-output (*standard-output* nil :indent t) ,@body))
+
 (defun get-id-from-uri ()
   "Returns the ID from the URI request."
   (car (cl-ppcre:all-matches-as-strings "[0-9]+" (request-uri *request*))))
@@ -18,8 +22,9 @@
       (:td (:a :href (movies-path movie)
 	       (fmt "More info about ~A" (movie-title movie))))))))
 
-(def-internal-macro selector-form (name options)
-  `(:select :name ,name
-	    ,@(mapcar
-	       #'(lambda (x) `(:option :value ,x ,(mkstr x)))
-	       (eval options))))
+(defun selector-form (name options)
+  (html-to-stout
+    (:select :name name
+	     (mapcar
+	      #'(lambda (x) (htm (:option :value x (fmt "~A" (mkstr x)))))
+	      options))))
