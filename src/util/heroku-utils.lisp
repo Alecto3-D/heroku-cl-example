@@ -12,7 +12,7 @@
 (defvar *test* nil)
 
 ;; Start local server
-(defvar *server* (start (make-instance 'easy-acceptor :port 8088)))
+;(defvar *server* (start (make-instance 'easy-acceptor :port 8088)))
 
 (defun db-params ()
   "Heroku database url format is postgres://username:password@host/database_name."
