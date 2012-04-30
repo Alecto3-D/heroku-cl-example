@@ -1,8 +1,5 @@
 (in-package :example)
 
-(defun symb (a b)
-  (intern (format nil "~a-~a" (symbol-name a) (symbol-name b))))
-
 (defmacro defmodel (name slot-definitions)
   `(progn
      (defclass ,name ()
