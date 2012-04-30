@@ -12,6 +12,7 @@
 			((:module :util
 				  :serial t
 				  :components ((:file "general-utils")
+					       (:file "date-utils")
 					       (:file "heroku-utils")
 					       (:file "html-utils")
 					       (:file "model-utils")))
