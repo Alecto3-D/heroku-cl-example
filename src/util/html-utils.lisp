@@ -22,9 +22,11 @@
       (:td (:a :href (movies-path movie)
 	       (fmt "More info about ~A" (movie-title movie))))))))
 
-(defun selector-form (name options)
+(defun selector-form (name options &optional selected)
   (html-to-stout
     (:select :name name
 	     (mapcar
-	      #'(lambda (x) (htm (:option :value x (fmt "~A" (mkstr x)))))
+	      #'(lambda (x) (if (equal selected x)
+				(htm (:option :selected "selected" :value x (fmt "~A" (mkstr x))))
+				(htm (:option :value x (fmt "~A" (mkstr x))))))
 	      options))))
