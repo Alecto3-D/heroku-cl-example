@@ -14,7 +14,7 @@
 
 (defun all-movie-rows ()
   (dolist (movie (movie-get-all))
-    (htm
+    (html-to-stout
      (:tr
       (:td (fmt "~a" (movie-title movie)))
       (:td (fmt "~a" (movie-rating movie)))
